@@ -9,6 +9,58 @@
 </head>
 <body>
 
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+     <!-- <li class="title"><a href="#"><span>Home</span></a></li> -->
+
+  <li class="name">
+    <a href="/"><img src="http://cliparts.co/cliparts/kc8/nKb/kc8nKbkji.png" /></a>
+  </li>
+  </ul>
+
+
+  <section class="top-bar-section">
+
+    <ul class="center-buttons">
+      
+      <li class="has-form">
+        <li class="has-form">
+          
+          <form action="/search" method="GET" class="row">
+            <div class="large-8 small-9 columns">
+              <input type="date" name="date" id="search">
+            </div>
+            <div class="large-4 small-3 columns">
+              <button style="color:white; font-weight:bold;">Search</button>
+            </div>
+          </form>
+        </li>
+        </div>
+      </li>
+      
+    </ul>
+
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="has-dropdown">
+        <a href="#">Login</a>
+        <ul class="dropdown">
+          <li><a href="#">Saved Events</a></li>
+          <li class="active"><a href="/sessions" method="DELETE">Logout</a></li>
+          <li> <a href="/login">Login</a> </li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <!-- <ul class="left">
+      <li><a href="#">Left Nav Button</a></li>
+    </ul> -->
+
+  </section>
+</nav>
+
 <%= yield %>
 
 </body>
