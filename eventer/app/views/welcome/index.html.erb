@@ -1,0 +1,58 @@
+<ul class="accordion" data-accordion>
+  <li class="accordion-navigation">
+    <a href="#panel1a">Login</a>
+    <div id="panel1a" class="content active">
+      <%= form_tag(sessions_path) do %>
+        <%= text_field_tag :user_name, nil, placeholder: "Enter Username"%> <br>
+        <%= password_field_tag :password, nil, placeholder: "Password"%>
+        <%= button_tag "Login"%>
+      <% end %>
+    </div>
+  </li>
+  <li class="accordion-navigation">
+    <a href="#panel2a">Sign Up</a>
+    <div id="panel2a" class="content">
+      <% if @user.errors.any? %>
+        <div id="error-explanation">
+          <p><%= pluralize(@user.errors.count, "error")%> prohibited this user from being saved:</p>
+          <ul>
+          <% @user.errors.full_messages.each do |message| %>
+          <li style="color: red"><%= message %></li>
+          <% end %>
+        </ul>
+        </div>
+        <% end %>
+
+      <%= form_for @user do |f| %>
+      <%= f.text_field :user_name, placeholder: 'Username' %></br>
+      <%= f.password_field :password, placeholder: 'Password' %></br>
+      <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation' %>
+      <%= f.text_field :avatar, placeholder: 'Avatar URL' %></br>
+      <%= f.text_field :twitter, placeholder: 'Twitter (optional)'%> <br>
+      <%= f.content_field :about_me, placeholder: "About Me"%> <br>
+
+      <%= f.button 'Signup' %>
+      <% end %>
+    </div>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  $(document).foundation({
+    accordion: {
+      callback : function (accordion) {
+        console.log(accordion);
+      }
+    }
+  });
+</script>
