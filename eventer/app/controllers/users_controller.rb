@@ -8,8 +8,14 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		User.create(user_params)
-		redirect_to events_path
+		@user = User.create(user_params)
+		if @user.save
+			session[:user_id] = @user.id
+		 redirect_to users_path
+		else
+			flash[:error] = "You fucked up something"
+			redirect_to '/'
+		end
 	end
 
 	def show
@@ -18,6 +24,6 @@ class UsersController < ApplicationController
 
 	private
 	def user_params
-		params.require(:user).permit(:user_name, :password_digest, :about_me, :avatar, :twitter)
+		params.require(:user).permit(:user_name, :password, :password_confirmation, :about_me, :avatar, :twitter)
 	end
 end
