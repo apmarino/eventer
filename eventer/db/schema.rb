@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20150829195825) do
     t.integer "event_id", null: false
   end
 
+  add_index "events_users", ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id", using: :btree
+  add_index "events_users", ["user_id", "event_id"], name: "index_events_users_on_user_id_and_event_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "user_name"
     t.string   "password_digest"
