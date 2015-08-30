@@ -1,0 +1,8 @@
+<h1>List of all users</h1>
+<%= @users.forEach do |user| %>
+	<ul>
+		<li>username: <%=user.user_name%></li>
+		<li>password: <%=user.password_digest%></li>
+		<li>twitter: <%=user.twitter%></li>
+</ul>
+<%end%>
