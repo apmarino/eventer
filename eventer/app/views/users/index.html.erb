@@ -2,7 +2,8 @@
 <% @users.each do |user| %>
 	<ul>
 		<li>username: <%=user.user_name%></li>
-		<li>password: <%=user.password_digest%></li>
 		<li>twitter: <%=user.twitter%></li>
+    <li> <img src="<%= user.avatar%>" style="height:50px; width:50px"> </li>
+    <li>About me: <%= user.about_me%></li>
 </ul>
 <%end%>
