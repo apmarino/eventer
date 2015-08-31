@@ -1,23 +1,24 @@
 <h1>Single Event</h1>
 
-Date: <%=@single[0]['datetime']%>
-Venue:<%=@single[0]['venue']['name']%>
+Date: <%=@single['datetime']%>
+Venue:<%=@single['venue']['name']%>
  
 Artists: 
 		<ul>
-		<%@single[0]['artists'].each do |artist| %>
+		<%@single['artists'].each do |artist| %>
 			<li><%=artist['name']%></li>
 			<%end%>
 			</ul>
-Location: <%=@single[0]['venue']['city']%>, <%=@single[0]['venue']['region']%>
+Location: <%=@single['venue']['city']%>, <%=@single['venue']['region']%>
 
-<a href="<%=@single[0]['ticket_url']%>" target="_blank">Buy Tickets</a>
+<a href="<%=@single['ticket_url']%>" target="_blank">Buy Tickets</a>
 
  <%= form_for @event do |f| %>
 
-<%=f.hidden_field  :venue_name, value: @single[0]['venue']['name'] %>
- <%=f.hidden_field :artist_name, value: @single[0]['artists'][0]['name']%> 
- <%=f.hidden_field :location, value: @single[0]['venue']['city']%>
- <%=f.hidden_field :date, value: @single[0]['datetime']%>
+<%=f.hidden_field  :venue_name, value: @single['venue']['name'] %>
+<%=f.hidden_field :user_id, value: session[:user_id]%> 
+ <%=f.hidden_field :artist_name, value: @single['artists'][0]['name']%> 
+ <%=f.hidden_field :location, value: @single['venue']['city']%>
+ <%=f.hidden_field :date, value: @single['datetime']%>
  <%=f.submit 'Save Event'%>
 <%end%>

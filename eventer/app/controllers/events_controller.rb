@@ -1,24 +1,31 @@
 class EventsController < ApplicationController
   def index
   	current_date = Date.today.to_s
-  	puts current_date
-  	@events = HTTParty.get("http://api.bandsintown.com/events/search?date=#{current_date}&location=use_geoip&radius=&format=json&app_id=YOUR_APP_ID
-")
+  	@events = HTTParty.get("http://api.bandsintown.com/events/search?date=#{current_date}&location=use_geoip&radius=&format=json&app_id=YOUR_APP_ID")
 	end
 
   def show
+  	current_date = Date.today.to_s
   	event_id = params[:id]
   	city = params[:city]
   	region = params[:region]
-  	@single  = HTTParty.get("http://api.bandsintown.com/events/search.json?location=#{city},#{region}&id=#{event_id}")
+  	@single
+  	@all_events = HTTParty.get("http://api.bandsintown.com/events/search?date=#{current_date}&location=use_geoip&radius=&format=json&app_id=YOUR_APP_ID")		
+  	@all_events.each do |event|
+  		if event['id'] == event_id.to_i
+
+  			@single = event
+  		end
+  	end
  		@event=Event.new
   end
 
-  
 
   def create
-  	Event.create(event_params)
+  	event = Event.create(event_params)
+  	EventsUser.create({event_id: event.id, user_id: session[:user_id]})
   	redirect_to events_path
+
   end
 
   private
