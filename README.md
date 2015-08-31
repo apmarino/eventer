@@ -1,4 +1,4 @@
-#BandNextDoor
+# BandNextDoor
 
 
 Description (3 Points)
@@ -10,10 +10,10 @@ User Stories (3 Points)
 Front-end Wireframes (3 Points)
 Routes (3 Points)
 Database Design (ERD/Data Model Diagrams) (3 Points)
-##Overview
-An application to find same day live music events nearby. 
+## Overview
+An application to find same day live music events nearby.
 
-#####Designed & Developed by Team Niner (Four Points of the Compass):
+##### Designed & Developed by Team Niner (Four Points of the Compass):
 * **Alexander Marino (Alexander the Great)**
 
 * **Daniel Khalili (Donkey Kong)**
@@ -22,28 +22,28 @@ An application to find same day live music events nearby.
 
 * **Colleen McCaffrey**
 
-#####Technologies Used:
+##### Technologies Used:
 * Ruby on Rails
 * jQuery
 * Foundation CSS
 * PostgreSQL
 
 
-#####Trello
+##### Trello
 [Private Trello Board](https://trello.com/b/sO7tRKSY/niner-ga-project-3)
 
-####ERD
-![ERD](eventer_erds.png)
+#### ERD
+![ERD](./eventer_erds.png)
 
-####Wireframes
-![wireframes](Niner-wireframes.png)
+#### Wireframes
+![wireframes](./wireframe_routes.png)
 
-###User Stories
+### User Stories
 Users can login, edit profile with avatar, link to twitter account and an about me section.
 Users can search events by date.
 A user can save an event in their profile.
 Users can delete saved events.
 Users can see the profiles of other users who have also saved the same event. Banding together.
 
-###Routes
+### Routes
 *Need to add routes- rake routes
