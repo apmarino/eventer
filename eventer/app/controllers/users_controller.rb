@@ -17,7 +17,7 @@ before_action :authenticate, except: [:new, :create]
 		 redirect_to users_path
 		else
 		 flash[:error] = "You fucked up something"
-		 redirect_to '/'
+		 redirect_to '/events'
 		end
 	end
 
