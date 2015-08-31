@@ -43,14 +43,11 @@
 
     <!-- Right Nav Section -->
     <ul class="right">
-      <li class="has-dropdown">
-        <a href="#">Login</a>
-        <ul class="dropdown">
-          <li><a href="#">Saved Events</a></li>
-          <li class="active"><a href="/sessions" method="DELETE">Logout</a></li>
-          <li> <a href="/login">Login</a> </li>
-        </ul>
-      </li>
+      
+      <% if session[:user_id]%>
+      <li> <%= link_to "Logout", sessions_path, method: :delete %> </li>
+      <li> <a href="/users/<%= session[:user_id]%>">Saved Events</a> </li>
+      <% end %>
     </ul>
 
     <!-- Left Nav Section -->
