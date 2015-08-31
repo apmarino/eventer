@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   get "/search" => "search#index"
 
+  get '/search/show/:city/:region/:id/:date' => "search#show"
+
+
 
   resource :sessions, only: [:create, :destroy]
   

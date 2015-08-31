@@ -20,18 +20,6 @@
 	        zoom: 12
 	      });
 
-				var marker = new google.maps.Marker({
-				   position: {lat: 40.73, lng: -73.99},
-				   map: map,
-				   title: 'Hello World!'
-				 });
-				
-				var marker = new google.maps.Marker({
-				   position: {lat: 40.7141667, lng: -74.006},
-				   map: map,
-				   title: 'Hello World!'
-				 });
-
 	   <% @events.each do | event | %>
 	    var marker = new google.maps.Marker({
   			 position: {lat:<%=event['venue']['latitude']%>, lng:<%=event['venue']['longitude']%>},
@@ -48,7 +36,7 @@
 	  	<%=@date%>
 			<h1>List of Nearby Events</h1>
 			<% @events.each do |event| %>
-			<ul>
+				<a href="/search/show/<%=event['venue']['city']%>/<%=event['venue']['region']%>/<%=event['id']%>/<%=@date%>"><ul>
 				<li>Where: <%=event['venue']['name']%> <%=event['venue']['city']%>, <%=event['venue']['region']%></li>
 				<li>When: <%=event['datetime']%></li>
 				<li>
@@ -59,7 +47,7 @@
 						<%end%>
 					</ul>
 				</li>
-			</ul>
+			</ul></a>
 			<%end%>
 
 	  </div><!--eventlist-->
