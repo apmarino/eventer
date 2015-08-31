@@ -12,6 +12,7 @@ before_action :authenticate, except: [:new, :create]
 
 	def create
 		@user = User.create(user_params)
+		redirect_to users_path
 		if @user.save
 			session[:user_id] = @user.id
 		 redirect_to users_path
