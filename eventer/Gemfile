@@ -33,7 +33,7 @@ gem 'gmaps4rails'
 gem 'geocoder'
 gem 'underscore-rails'
 gem 'paperclip'
-gem 'rmagick'
+# gem 'rmagick'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
