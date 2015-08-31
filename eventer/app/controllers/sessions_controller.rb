@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
   
   def create
     user = User.find_by({user_name: params[:user_name]})  #unique username is better
-    binding.pry
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to users_path
