@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+
+  get '/events/show/:city/:region/:id' => "events#show"
+
   get "/search" => "search#index"
+
 
   resource :sessions, only: [:create, :destroy]
   
