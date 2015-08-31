@@ -1,24 +1,30 @@
-
-
 <h1><%= @user.user_name %>'s Profile</h1>
-<div class="avatar" style="margin:25px">
+<div class="avatar">
 
   <%= image_tag @user.avatar.url(:medium) %>
 
 </div><!--avatar-->
-<div class="userinfo" style="">
+<div class="userinfo">
 
-  <h3> <%= @user.user_name %></h3>
-  <h3>  <%= @user.twitter %></h3>
-  <h3>  <%=@user.about_me%></h3>  
+  <h3>Username:</h3>
+  <%= @user.user_name %>
+  <h3>Twitter: </h3>  
+  <%= @user.twitter %>
+  <h3> About <%= @user.user_name %> </h3> 
+  
+  <%=@user.about_me%> 
 
 </div><!--userinfo-->
 
+<h1><%= @user.user_name %>'s Events</h1>
+<div class="events_container">
+  <% @user_events.each do |event|%>
+    <div class="events">
 
-<div class="events">
-  <h1><%= @user.user_name %>'s Events</h1>
+    <span class="venue_name"><%=event.venue_name%></span> <%=event.location%><br>
+      <span class="artist_name"><%=event.artist_name%></span> <%=event.date%>
 
+    </div><!--events-->
+  <%end%>
 
-
-
-</div><!--events-->
+</div><!--events_container-->
