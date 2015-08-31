@@ -20,21 +20,36 @@
           <ul>
           <% @user.errors.full_messages.each do |message| %>
           <li style="color: red"><%= message %></li>
-          <% end %>
+          <% end %>quit
         </ul>
         </div>
         <% end %>
+        <%= form_for @user, html: { multipart: true } do |f| %>
+            
+            Enter Username:
+            <%= f.text_field :user_name, placeholder: 'username' %>
 
-      <%= form_for @user do |f| %>
-      <%= f.text_field :user_name, placeholder: 'Username' %></br>
-      <%= f.password_field :password, placeholder: 'Password' %></br>
-      <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation' %>
-      <%= f.text_field :avatar, placeholder: 'Avatar URL' %></br>
-      <%= f.text_field :twitter, placeholder: 'Twitter (optional)'%> <br>
-      <%= f.text_field :about_me, placeholder: "About Me"%> <br>
+            Twitter handle:  
+            <%= f.text_field :twitter, placeholder: 'Twitter (optional)'%>  
+            Enter Password
 
-      <%= f.button 'Signup' %>
-      <% end %>
+
+            <%= f.password_field :password, placeholder: 'Password' %></br>
+
+            Confirm Password
+            <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation' %>
+
+            Tell us about yourself:
+            <%= f.text_area :about_me, size: "30x6" %>
+
+            Upload profile photo here:
+            <%= f.label :avatar%>
+            <%= f.file_field :avatar, placeholder: "thumb" %>
+
+            <%= f.submit "create" %>
+
+        <% end %>
+
     </div>
   </li>
 </ul>
