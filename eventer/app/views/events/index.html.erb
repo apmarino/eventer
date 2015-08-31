@@ -39,6 +39,7 @@
 
 	  </script>
 	  <div class="eventlist">
+
 			<h1>List of Nearby Events</h1>
 			<% @events.each do |event| %>
 			<a href="/events/show/<%=event['venue']['city']%>/<%=event['venue']['region']%>/<%=event['id']%>"><ul>
