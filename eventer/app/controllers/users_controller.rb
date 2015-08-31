@@ -14,10 +14,10 @@ before_action :authenticate, except: [:new, :create]
 		@user = User.create(user_params)
 		if @user.save
 		 session[:user_id] = @user.id
-		 redirect_to users_path
+		 redirect_to events_path
 		else
 		 flash[:error] = "You fucked up something"
-		 redirect_to '/events'
+		 redirect_to '/'
 		end
 	end
 
