@@ -82,9 +82,16 @@ Location: <%=@single['venue']['city']%>, <%=@single['venue']['region']%>
 <%end%>
 
 
+<h4>Other users who saved this event:</h4>
+<% @see_users.each do |user|%>
+  <a href="/users/<%= user.id%>"> <%= image_tag user.avatar.url(:thumb) %></a>
+<% end %>
+
 
 <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_ID']%>&callback=initMap">
 </script>
  </body>
 </html>
+
+
