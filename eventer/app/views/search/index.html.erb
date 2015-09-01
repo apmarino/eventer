@@ -32,27 +32,26 @@
 	    }
 
 	  </script>
-	  <div class="eventlist">
-	  	<%=@date%>
-			<h1>List of Nearby Events</h1>
-			<% @events.each do |event| %>
-				<a href="/search/show/<%=event['venue']['city']%>/<%=event['venue']['region']%>/<%=event['id']%>/<%=@date%>"><ul>
-				<li>Where: <%=event['venue']['name']%> <%=event['venue']['city']%>, <%=event['venue']['region']%></li>
-        <% date = event['datetime'].gsub!("T", " ")
-    the_date = DateTime.parse(date).strftime('%A %B %d, %I:%M %p %Y') %>
-				<li>When: <%=the_date%></li>
-				<li>
-					Who:
-					<ul>
+	  <div class="event-list">
+			<h1>Events on <%=@date%></h1>
+				<% @events.each do |event| %>
+				<a href="/search/show/<%=event['venue']['city']%>/<%=event['venue']['region']%>/<%=event['id']%>/<%=@date%>">
+				<div class="events-container">
+				<% date = event['datetime'].gsub!("T", " ")
+    		the_date = DateTime.parse(date).strftime('%A %B %d, %I:%M %p %Y') %>
+				<h4><%=event['venue']['name']%> <%=event['venue']['region']%></h4> 
+				<h5><%=the_date%></h5>
+				<ul class="inline-list">
+					<li>Performing: </li>
 					<%event['artists'].each do |artist| %>
-						<li><%=artist['name']%></li>
-						<%end%>
-					</ul>
+					<li><em><%=artist['name']%></em></li>
+					<%end%>
+				</ul>
 				</li>
-			</ul></a>
+			</div></a>
 			<%end%>
 
-	  </div><!--eventlist-->
+	  </div><!--event-list-->
 
 
     <script async defer
