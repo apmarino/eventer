@@ -41,6 +41,7 @@ before_action :authenticate, except: [:new, :create]
 		@user.update_attribute(:user_name, params["user"]["user_name"])
 		@user.update_attribute(:about_me, params["user"]["about_me"])
 		@user.update_attribute(:twitter, params["user"]["twitter"])
+		@user.update_attribute(:avatar, params["user"]["avatar"])
 		redirect_to user_path(@user)
 
 		# if @user.update_attributes(user_params)
