@@ -23,7 +23,6 @@ class EventsController < ApplicationController
   	@all_events = HTTParty.get("http://api.bandsintown.com/events/search?date=#{current_date}&location=use_geoip&radius=&format=json&app_id=YOUR_APP_ID")		
   	@all_events.each do |event|
   		if event['id'] == event_id.to_i
-
   			@single = event
   		end
   	end
