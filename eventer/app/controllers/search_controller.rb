@@ -25,6 +25,8 @@ class SearchController < ApplicationController
   			@single = event
   		end
   	end
+    date = @single['datetime'].gsub!("T", " ")
+    @the_date = DateTime.parse(date).strftime('%A %B %d, %I:%M %p %Y')
  		@event=Event.new
   end
 
