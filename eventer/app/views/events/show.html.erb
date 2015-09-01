@@ -6,6 +6,14 @@ Venue:<%=@single['venue']['name']%>
 Artists: 
 		<ul>
 		<%@single['artists'].each do |artist| %>
+
+		<% response = HTTParty.get("https://api.spotify.com/v1/search?q="+artist['name']+"&type=artist") %>
+			<% if response["artists"]["items"]%>
+			<img src=<%= response["artists"]["items"][1]["images"][1]["url"] %>>
+			<% else %>
+			<img src="https://d3m79pznqer0b2.cloudfront.net/default-artist-image.jpg">
+			<% end %>			
+
 			<li><%=artist['name']%></li>
 			<%end%>
 			</ul>
