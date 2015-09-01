@@ -49,6 +49,14 @@ before_action :authenticate, except: [:new, :create]
 
 	end
 
+	def destroy
+		@user = User.find(params[:id])
+		@user.destroy
+		session[:user_id] = nil
+		redirect_to "/"
+
+	end
+
 	private
 	def user_params
 		params.require(:user).permit(:user_name, :password, :password_confirmation, :about_me, :twitter, :avatar)
