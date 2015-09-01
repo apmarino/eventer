@@ -27,6 +27,9 @@
 			   title: '<%=event['venue']['name']%>'
 			
 			 });
+	     google.maps.event.addListener(marker, 'click', function() {
+    	window.location.href = "/search/show/<%=event['venue']['city']%>/<%=event['venue']['region']%>/<%=event['id']%>/<%=@date%>";
+			});
 			<%end%>
 
 	    }
