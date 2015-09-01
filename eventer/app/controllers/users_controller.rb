@@ -1,3 +1,4 @@
+require 'pry'
 class UsersController < ApplicationController
 
 before_action :authenticate, except: [:new, :create]
@@ -24,6 +25,28 @@ before_action :authenticate, except: [:new, :create]
 	def show
 		@user = User.find(params[:id])
 		@user_events = @user.events
+	end
+
+	def edit
+		@user = User.find(params[:id])
+	end
+
+	def update
+		@user = User.find(params[:id])
+		@user.update_attribute(:user_name, params["user"]["user_name"])
+		@user.update_attribute(:about_me, params["user"]["about_me"])
+		@user.update_attribute(:twitter, params["user"]["twitter"])
+		redirect_to user_path(@user)
+
+		# if @user.update_attributes(user_params)
+		# 	 #if update succeeeds, redirect to user path
+		# 	 redirect_to user_path(@user)
+
+		# else
+		# 		#if update fails, redirect to edit form
+		# 	render('edit')
+		# end
+
 	end
 
 	private
