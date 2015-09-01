@@ -64,13 +64,6 @@
 
 <%=f.hidden_field  :venue_name, value: @single['venue']['name'] %>
 <%=f.hidden_field :user_id, value: session[:user_id]%> 
-<<<<<<< HEAD
-<%=f.hidden_field :artist_name, value: @single['artists'][0]['name']%> 
-<%=f.hidden_field :location, value: @single['venue']['city']%>
-<%=f.hidden_field :date, value: @single['datetime']%>
-<%=f.submit 'Save Event'%>
-<%end%>
-=======
  <%=f.hidden_field :artist_name, value: @single['artists'][0]['name']%> 
  <%=f.hidden_field :location, value: @single['venue']['city']%>
  <%=f.hidden_field :date, value: @single['datetime']%>
@@ -90,5 +83,3 @@
  </body>
 </html>
 
-
->>>>>>> cb26e93b898d8378ef10ba6cc467fb7948314ae6
