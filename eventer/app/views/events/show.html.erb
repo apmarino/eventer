@@ -1,10 +1,50 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 300px; width:500px;}
+    </style>
+  </head>
+
+  <body>
+
+
+
+ <div id="map"></div>
+
+<script type="text/javascript">
+
+    var map;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat:40.73, lng:-73.99},
+        zoom: 12
+      });
+
+
+    var marker = new google.maps.Marker({
+			 position: {lat:<%=@single['venue']['latitude']%>, lng:<%=@single['venue']['longitude']%>},
+		   map: map,
+		   title: '<%=@single['venue']['name']%>'
+
+		 });
+        google.maps.event.addListener(marker, 'click', function() {
+	window.location.href = this.url;
+		});
+   
+    }
+
+</script>
+
 
 <h1>Single Event</h1>
 
 
 Date: <%=@the_date%> <br>
 
-Venue:<%=@single['venue']['name']%>
+Venue: <%=@single['venue']['name']%> <br>
  
 Artists: 
 		<ul>
@@ -40,3 +80,11 @@ Location: <%=@single['venue']['city']%>, <%=@single['venue']['region']%>
  <%=f.hidden_field :date, value: @single['datetime']%>
  <%=f.submit 'Save Event'%>
 <%end%>
+
+
+
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_ID']%>&callback=initMap">
+</script>
+ </body>
+</html>
