@@ -1,6 +1,7 @@
 <h1><%= @user.user_name %>'s Profile</h1>
 <%if @show_buttons == true %>
-  <%= button_to "Edit Profile", edit_user_path %>
+
+  <%= button_to "Edit Profile", edit_user_path, method: :get %><br>
 
   <%=button_to 'Delete Profile', user_path(@user), :method => :delete, :data => {:confirm => "are you sure?"} %>
  <%end%>

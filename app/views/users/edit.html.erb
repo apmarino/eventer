@@ -1,13 +1,14 @@
 
 <div class="userinfo">
 
-<%= form_for @user do |f| %>
+<%= form_for @user, html: {multipart: true} do |f| %>
     Update username:
     <%= f.text_field :user_name, placeholder: 'username' %><br>
     Update 'About Me':
     <%= f.text_field :about_me, placeholder: 'about me'%><br>
     Update Twitter:
-    <%=f.text_field :twitter, placeholder: 'twitter' %>   
+    <%=f.text_field :twitter, placeholder: 'twitter' %>  
+    <%= f.file_field :avatar, placeholder: 'medium' %> 
     <%= f.submit %>
 
 <% end %>
