@@ -37,8 +37,21 @@ class EventsController < ApplicationController
   	event = Event.create(event_params)
   	EventsUser.create({event_id: event.id, user_id: session[:user_id]})
   	redirect_to events_path
-
   end
+
+  def destroy
+  	event =Event.find(params[:id])
+  	event_user = EventsUser.find_by({event_id: params[:id]})
+  	if event_user['user_id'] == session[:user_id]
+  		event.destroy
+  		redirect_to '/users/' + session[:user_id].to_s
+
+  	else 
+  		flash[:error] = "You do not have access"
+		redirect_to '/users/' + session[:user_id].to_s
+		end
+	end
+
 
   private
   def event_params
