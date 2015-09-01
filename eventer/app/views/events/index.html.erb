@@ -44,7 +44,9 @@
 			<% @events.each do |event| %>
 			<a href="/events/show/<%=event['venue']['city']%>/<%=event['venue']['region']%>/<%=event['id']%>"><ul>
 				<li>Where: <%=event['venue']['name']%> , <%=event['venue']['region']%></li>
-				<li>When: <%=event['datetime']%></li>
+        <% date = event['datetime'].gsub!("T", " ")
+    the_date = DateTime.parse(date).strftime('%A %B %d, %I:%M %p %Y') %>
+				<li>When: <%= the_date%></li>
 				<li>
 					Who:
 					<ul>
