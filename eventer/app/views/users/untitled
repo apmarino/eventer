@@ -1,0 +1,1 @@
+<a href="/events/show/<%=event.city%>/<%=event.region%>/<%=event.id%>">

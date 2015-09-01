@@ -9,8 +9,6 @@
 
   <body>
 
-
-
  <div id="map"></div>
 
 <script type="text/javascript">
@@ -73,8 +71,8 @@ Location: <%=@single['venue']['city']%>, <%=@single['venue']['region']%>
 
  <%= form_for @event do |f| %>
 
-<%=f.hidden_field  :venue_name, value: @single['venue']['name'] %>
-<%=f.hidden_field :user_id, value: session[:user_id]%> 
+ <%=f.hidden_field  :venue_name, value: @single['venue']['name'] %>
+ <%=f.hidden_field :user_id, value: session[:user_id]%> 
  <%=f.hidden_field :artist_name, value: @single['artists'][0]['name']%> 
  <%=f.hidden_field :location, value: @single['venue']['city']%>
  <%=f.hidden_field :date, value: @single['datetime']%>
