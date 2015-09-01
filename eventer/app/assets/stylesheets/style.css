@@ -1,0 +1,24 @@
+.avatar{
+
+}
+
+.userinfo{
+  margin: 15px;
+}
+
+.events_container{
+  margin: 15px;
+}
+
+.events{
+  padding: 10px;
+}
+
+.venue_name{
+  font-style: bold;
+}
+
+.artist_name {
+  font-style: italic;
+}
+

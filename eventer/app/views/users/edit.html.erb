@@ -1,3 +1,15 @@
-<%= form_for @user, url: users_path, html: { multipart: true } do |form| %>
-  <%= form.file_field :avatar %>
+
+<div class="userinfo">
+
+<%= form_for @user do |f| %>
+    Update username:
+    <%= f.text_field :user_name, placeholder: 'username' %><br>
+    Update 'About Me':
+    <%= f.text_field :about_me, placeholder: 'about me'%><br>
+    Update Twitter:
+    <%=f.text_field :twitter, placeholder: 'twitter' %>   
+    <%= f.submit %>
+
 <% end %>
+
+<div><!--userinfo-->
