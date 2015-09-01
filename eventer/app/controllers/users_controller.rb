@@ -17,14 +17,19 @@ before_action :authenticate, except: [:new, :create]
 		 session[:user_id] = @user.id
 		 redirect_to events_path
 		else
-		 flash[:error] = "You fucked up something"
-		 redirect_to '/'
+		 flash[:error] = "There was eeror creating your profile"
+		 render template: "welcome/index"
 		end
 	end
 
 	def show
 		@user = User.find(params[:id])
 		@user_events = @user.events
+		if session[:user_id] != @user.id
+			@show_buttons = false
+		else 
+			@show_buttons = true
+		end
 	end
 
 	def edit
@@ -46,6 +51,14 @@ before_action :authenticate, except: [:new, :create]
 		# 		#if update fails, redirect to edit form
 		# 	render('edit')
 		# end
+
+	end
+
+	def destroy
+		@user = User.find(params[:id])
+		@user.destroy
+		session[:user_id] = nil
+		redirect_to "/"
 
 	end
 
