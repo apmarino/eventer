@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 300px; width:500px;}
+    </style>
+  </head>
+
+  <body>
+
+
+
+ <div id="map"></div>
+
+<script type="text/javascript">
+
+    var map;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat:40.73, lng:-73.99},
+        zoom: 12
+      });
+
+
+    var marker = new google.maps.Marker({
+			 position: {lat:<%=@single['venue']['latitude']%>, lng:<%=@single['venue']['longitude']%>},
+		   map: map,
+		   title: '<%=@single['venue']['name']%>'
+
+		 });
+        google.maps.event.addListener(marker, 'click', function() {
+	window.location.href = this.url;
+		});
+   
+    }
+
+</script>
+
+<h2><%=@single['venue']['name']%></h2>
+<h3><%=@single['venue']['city']%>, <%=@single['venue']['region']%></h3>
+<h4><%=@the_date%></h4>
+<h6>Artists Performing:</h6>
+	<%@single['artists'].each do |artist| %>
+	<h6><%=artist['name']%></h6>
+		<div id="spotify-image-container">
+		<% response = HTTParty.get("https://api.spotify.com/v1/search?q="+artist['name']+"&type=artist") %>
+				<% filtered = response["artists"]["items"].select do |e| %>
+					<%if e["images"] != [ ]%>
+					<% e["images"][0]["url"] %>
+				<%end%>
+			<% end %>
+			<% if filtered == [] %>
+				<img src="https://d3m79pznqer0b2.cloudfront.net/default-artist-image.jpg">
+			<% elsif filtered %>
+				<img src=<%= filtered[0]["images"][1]["url"] %>>
+			<% end %>
+		<%end%>
+		
+<a href="<%=@single['ticket_url']%>" target="_blank">Buy Tickets</a>
+
+ <%= form_for @event do |f| %>
+
+<%=f.hidden_field  :venue_name, value: @single['venue']['name'] %>
+<%=f.hidden_field :user_id, value: session[:user_id]%> 
+ <%=f.hidden_field :artist_name, value: @single['artists'][0]['name']%> 
+ <%=f.hidden_field :location, value: @single['venue']['city']%>
+ <%=f.hidden_field :date, value: @single['datetime']%>
+ <%=f.submit 'Save Event'%>
+<%end%>
+
+
+<h4>Other users who saved this event:</h4>
+<% @see_users.each do |user|%>
+  <a href="/users/<%= user.id%>"> <%= image_tag user.avatar.url(:thumb) %></a>
+<% end %>
+
+
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_ID']%>&callback=initMap">
+</script>
+ </body>
+</html>
+
