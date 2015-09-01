@@ -29,6 +29,9 @@ class EventsController < ApplicationController
   	end
     date = @single['datetime'].gsub!("T", " ")
     @the_date = DateTime.parse(date).strftime('%A %B %d, %I:%M %p %Y')
+    event_search = Event.where({venue_name: @single['venue']['name']})
+    @see_users = event_search[0].users
+    
  		@event=Event.new
   end
 
