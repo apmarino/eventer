@@ -37,9 +37,6 @@
     }
 
 </script>
-
-
-<<<<<<< HEAD
 <h2><%=@single['venue']['name']%></h2>
 <h3><%=@single['venue']['city']%>, <%=@single['venue']['region']%></h3>
 <h4><%=@the_date%></h4>
@@ -50,24 +47,6 @@
 		<% response = HTTParty.get("https://api.spotify.com/v1/search?q="+artist['name']+"&type=artist") %>
 				<% filtered = response["artists"]["items"].select do |e| %>
 					<%if e["images"] != [ ]%>
-=======
-<h1>Single Event</h1>
-
-
-Date: <%=@the_date%> <br>
-
-Venue: <%=@single['venue']['name']%> <br>
- 
-Artists: 
-		<ul>
-		<%@single['artists'].each do |artist| %>
-			<li><%=artist['name']%></li>
-
-			<% response = HTTParty.get("https://api.spotify.com/v1/search?q="+artist['name']+"&type=artist") %>
-				
-					<% filtered = response["artists"]["items"].select do |e| %>
-						<%if e["images"] != [ ]%>
->>>>>>> cb26e93b898d8378ef10ba6cc467fb7948314ae6
 						<% e["images"][0]["url"] %>
 						<%end%>
 					<% end %>
