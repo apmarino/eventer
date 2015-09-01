@@ -25,6 +25,11 @@ before_action :authenticate, except: [:new, :create]
 	def show
 		@user = User.find(params[:id])
 		@user_events = @user.events
+		if session[:user_id] != @user.id
+			@show_buttons = false
+		else 
+			@show_buttons = true
+		end
 	end
 
 	def edit

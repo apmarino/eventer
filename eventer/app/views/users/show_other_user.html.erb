@@ -1,11 +1,4 @@
 <h1><%= @user.user_name %>'s Profile</h1>
-<%if @show_buttons == true %>
-  <%= button_to "Edit Profile", edit_user_path %><br>
-
-  <%=button_to 'Delete Profile', user_path(@user), :method => :delete, :data => {:confirm => "are you sure?"} %>
- <%end%>
-
-<div class="avatar">
 
   <%= image_tag @user.avatar.url(:medium) %>
 
