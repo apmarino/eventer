@@ -35,7 +35,6 @@
 	    }
 
 	  </script>
-<<<<<<< HEAD
 	  <div class="event-list">
 			<h1>Events on <%=@date%></h1>
 				<% @events.each do |event| %>
@@ -47,19 +46,7 @@
 				<h5><%=the_date%></h5>
 				<ul class="inline-list">
 					<li>Performing: </li>
-=======
-	  <div class="eventlist">
-			<h1>List of Nearby Events</h1>
-			<% @events.each do |event| %>
-				<a href="/search/show/<%=event['venue']['city']%>/<%=event['venue']['region']%>/<%=event['id']%>/<%=@date%>"><ul>
-				<li>Where: <%=event['venue']['name']%> <%=event['venue']['city']%>, <%=event['venue']['region']%></li>
-        <% date = event['datetime'].gsub!("T", " ")
-    the_date = DateTime.parse(date).strftime('%A %B %d, %I:%M %p %Y') %>
-				<li>When: <%=the_date%></li>
-				<li>
-					Who:
-					<ul>
->>>>>>> cb26e93b898d8378ef10ba6cc467fb7948314ae6
+
 					<%event['artists'].each do |artist| %>
 					<li><em><%=artist['name']%></em></li>
 					<%end%>
