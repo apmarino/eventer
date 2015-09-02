@@ -1,6 +1,13 @@
+
 body#usershow {
   background-color: grey;
 }
+
+.wrapper {
+	position: fixed;
+	margin: 0;
+}
+
 
 .headercontainer{
   height: 30vw;
@@ -54,6 +61,11 @@ li.events {
 }
 
 .event-list {
+	float: left;
+	position: relative;
+	width: 50vw;
+	height: 100vh;
+	overflow: scroll;
 
 }
 
