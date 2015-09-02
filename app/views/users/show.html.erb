@@ -1,4 +1,4 @@
-<body>
+<body id="usershow">
 
 
 <div id="user-show-background"> <img src="http://wallpaper.pickywallpapers.com/1920x1080/concert.jpg" alt=""></div><!--user-show_background-->
@@ -6,20 +6,24 @@
 
 
   <div class="headerbox">
-    <div class="left ">
-    <h1><%= @user.user_name %>'s Profile</h1>
-    <%if @show_buttons == true %>
+    <div class="leftdiv ">
+    
+        <h1><%= @user.user_name %>'s Profile</h1>
+      <div class="buttons">
+        <%if @show_buttons == true %>
 
-      <%= button_to "Edit Profile", edit_user_path, method: :get %><br>
+          <%= button_to "Edit Profile", edit_user_path, method: :get %><br>
 
-      <%=button_to 'Delete Profile', user_path(@user), :method => :delete, :data => {:confirm => "are you sure?"} %>
-     <%end%>
-
-
+          <%=button_to 'Delete Profile', user_path(@user), :method => :delete, :data => {:confirm => "are you sure?"} %>
+         <%end%>
+      </div>
+      <div class="avatar">
       <%= image_tag @user.avatar.url(:medium) %>
 
+      </div>
+
     </div><!--left -->
-    <div class="right">
+    <div class="rightdiv">
 
           <h3>Username:</h3>
           <%= @user.user_name %>

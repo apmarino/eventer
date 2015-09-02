@@ -1,47 +1,32 @@
-body {
+body#usershow {
   background-color: grey;
-}
-
-.avatar{
-
 }
 
 .headercontainer{
   height: 30vw;
-    margin: 25px 115px;
-
+  margin: 25px 115px;
 }
 
+
+.leftdiv{
+  position: relative;
+  width: 30%
+}
+
+.rightdiv {
+  position: relative;
+  top: -324px;
+  left: 125px;
+  width: 66%;
+  padding: 5px 15px;
+  margin: 0 auto;
+}
 .headerbox {
   position: absolute;
+  height: 30vw;
+
 }
 
-.left, .right {
-  position: relative;
-}
-
-.userinfo{
-/*  border: solid black 1px;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 15px auto;
-  width: 80%;
-  height: 462px;*/
-}
-
-.usercolumn{
-  /*float:right;*/
-  border: solid black 1px;
-  border-radius: 10px;
-/*  padding: 10px;
-  margin: 15px auto;
-  width: 80%;
-  height: 100%;*/
-/*  overflow: none;
-*/}
-
-/*outside div abs inside div rel
-*/
 .events-container{
   border-radius: 10px;
   padding: 10px;
@@ -73,7 +58,7 @@ li.events {
 }
 
 div.avatar {
-  width:30%;
+  width:70%;
 }
 
 .avatar img{
