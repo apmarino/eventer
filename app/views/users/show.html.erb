@@ -12,7 +12,6 @@
 
 <div class="headercontainer">
 
-<<<<<<< HEAD
   <div class="row" id="user-info">
     <div class="small-3 columns" id="avatar">
         
@@ -24,18 +23,7 @@
         <%if @show_buttons == true %>
 
           <%= button_to "Edit Profile", edit_user_path, method: :get, class: 'tiny secondary  button' %>
-=======
 
-  <div class="headerbox">
-    <div class="leftdiv ">
-    
-
-        <h1><%= @user.user_name %>'s Profile</h1>
-      <div class="buttons">
-        <%if @show_buttons == true %>
-
-          <%= button_to "Edit Profile", edit_user_path, method: :get, class: 'tiny secondary button' %><br>
->>>>>>> 2124516ea8e28d414412bd1be273a6931de51259
 
           <%=button_to 'Delete Profile', user_path(@user), :method => :delete, :data => {:confirm => "are you sure?"}, class: 'tiny alert button' %>
          <%end%>
