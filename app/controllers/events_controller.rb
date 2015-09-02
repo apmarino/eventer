@@ -10,8 +10,10 @@ class EventsController < ApplicationController
 	  	location = Geocoder.search(@ip)
 	  	@long = location[0].longitude
 	  	@lat = location[0].latitude
-	  	
-
+	  	puts "@long: " << "#{@long}"
+      puts "@lat: " << "#{@lat}"
+      puts "@ip: " << "#{@ip}"
+      puts "request long: " << "#{request.location.longitude}"
 	end
 
   def show
