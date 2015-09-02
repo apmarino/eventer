@@ -6,8 +6,6 @@
 
 <body id="usershow">
 
-
-
 <div id="user-show-background"> <img src="http://wallpaper.pickywallpapers.com/1920x1080/concert.jpg" alt=""></div><!--user-show_background-->
 
 <div class="headercontainer">
@@ -34,7 +32,7 @@
       <h3>Username:</h3>
       <%= @user.user_name %>
       <h3>Twitter: </h3>  
-      <%= @user.twitter %>
+      <a href='https://www.twitter.com/<%=@user.twitter%>'>@<%= @user.twitter %></a>
       <h3> About <%= @user.user_name %> </h3> 
       <%=@user.about_me%> 
     </div><!--small-9 columns-->
