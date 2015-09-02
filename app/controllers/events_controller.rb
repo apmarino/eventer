@@ -31,7 +31,7 @@ class EventsController < ApplicationController
     event_search = Event.where({venue_name: @single['venue']['name']})
     
     if event_search.length > 0
-      @see_users = event_search[0].users
+      @see_users = event_search.users
     else 
       @see_users = []
     end
