@@ -45,19 +45,26 @@
 	<%@single['artists'].each do |artist| %>
 	<h6><%=artist['name']%></h6>
 		<div id="spotify-image-container">
+		<% if artist['name'].delete(" ").match(/^[A-z]+$/) %>
+
 		<% response = HTTParty.get("https://api.spotify.com/v1/search?q="+artist['name']+"&type=artist") %>
-				<% filtered = response["artists"]["items"].select do |e| %>
-					<%if e["images"] != [ ]%>
+			<% filtered = response["artists"]["items"].select do |e| %>
+				<%if e["images"] != [ ]%>
 					<% e["images"][0]["url"] %>
-				<%end%>
-			<% end %>
-			<% if filtered == [] %>
-				<img src="https://d3m79pznqer0b2.cloudfront.net/default-artist-image.jpg">
-			<% elsif filtered %>
-				<img src=<%= filtered[0]["images"][1]["url"] %>>
-			<% end %>
-		<%end%>
-		
+					<%end%>
+				<% end %>
+				<% if filtered == [] %>
+					<img src="https://collettejellisdesign.files.wordpress.com/2013/08/mwcharacters-silhouette-png.png?w=1020">
+				<% elsif filtered %>
+					<img src=<%= filtered[0]["images"][1]["url"] %>>
+				<% end %>
+	<% else %>
+		<img src="https://collettejellisdesign.files.wordpress.com/2013/08/mwcharacters-silhouette-png.png?w=1020">
+
+	<%end%>
+				</div>
+			<%end%>
+			</ul>
 <a href="<%=@single['ticket_url']%>" target="_blank">Buy Tickets</a>
 
  <%= form_for @event do |f| %>
@@ -74,7 +81,7 @@
 
 <h4>Other users who saved this event:</h4>
 <% @see_users.each do |user|%>
-  <a href="/users/<%= user.id%>"> <%= image_tag user.avatar.url(:thumb) %></a>
+  <a href="/users/<%= user[0].id%>"> <%= image_tag user[0].avatar.url(:thumb) %></a>
 <% end %>
 
 

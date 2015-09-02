@@ -28,10 +28,12 @@ class SearchController < ApplicationController
     date = @single['datetime'].gsub!("T", " ")
     @the_date = DateTime.parse(date).strftime('%A %B %d, %I:%M %p %Y')
 
-    event_search = Event.where({venue_name: @single['venue']['name']})
+    event_search = Event.where({venue_name: @single['venue']['name'], date: @single['datetime']})
     
     if event_search.length > 0
-      @see_users = event_search[0].users
+      @see_users = event_search.map do |event|
+      event.users
+      end
     else 
       @see_users = []
     end
