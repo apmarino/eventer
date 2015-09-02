@@ -76,6 +76,7 @@ div.avatar {
   width: 100%;
   margin-bottom: 15px;
   min-width: 75px;
+  max-width: 100px;
 }
 
 div#spotify-image-container {
