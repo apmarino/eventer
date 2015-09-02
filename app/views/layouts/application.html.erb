@@ -11,13 +11,13 @@
 </head>
 <body>
 
-<nav class="top-bar" data-topbar role="navigation">
+<nav class="top-bar navigate" data-topbar role="navigation">
   <ul class="title-area">
      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
      <!-- <li class="title"><a href="#"><span>Home</span></a></li> -->
 
   <li class="name">
-    <a href="/events"><img src="http://cliparts.co/cliparts/kc8/nKb/kc8nKbkji.png" /></a>
+      <a href="/events"><img src= <%=image_path("eventr_logo.png")%> /></a>
   </li>
   </ul>
 
@@ -31,12 +31,13 @@
           
           <form action="/search" method="GET" class="row">
             <div class="large-8 small-9 columns">
-              <input type="date" name="date" id="search">
+              <input type="date" name="date" id="search_bar">
             </div>
-            <div class="large-4 small-3 columns">
+            <div id="search_bar" class="large-4 small-3 columns">
               <button style="color:white; font-weight:bold;">Search</button>
             </div>
           </form>
+
         </li>
         </div>
       </li>
