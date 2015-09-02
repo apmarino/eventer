@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 	  	location = Geocoder.search(@ip)
 	  	@long = location[0].longitude
 	  	@lat = location[0].latitude
-	  	
+	  	binding.pry
 
 	end
 
