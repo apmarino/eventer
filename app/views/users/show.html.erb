@@ -9,9 +9,22 @@
 
 
 <div id="user-show-background"> <img src="http://wallpaper.pickywallpapers.com/1920x1080/concert.jpg" alt=""></div><!--user-show_background-->
+
 <div class="headercontainer">
 
+<<<<<<< HEAD
+  <div class="row" id="user-info">
+    <div class="small-3 columns" id="avatar">
+        
+      <div class="avatar">
+        <h1 id="username_show"><%= @user.user_name %></h1>
+        <%= image_tag @user.avatar.url(:medium) %>
+      </div><!--avatar-->
+      <div class="user-show-buttons">
+        <%if @show_buttons == true %>
 
+          <%= button_to "Edit Profile", edit_user_path, method: :get, class: 'tiny secondary  button' %>
+=======
 
   <div class="headerbox">
     <div class="leftdiv ">
@@ -22,43 +35,38 @@
         <%if @show_buttons == true %>
 
           <%= button_to "Edit Profile", edit_user_path, method: :get, class: 'tiny secondary button' %><br>
+>>>>>>> 2124516ea8e28d414412bd1be273a6931de51259
 
           <%=button_to 'Delete Profile', user_path(@user), :method => :delete, :data => {:confirm => "are you sure?"}, class: 'tiny alert button' %>
          <%end%>
-      </div>
-      <div class="avatar">
-      <%= image_tag @user.avatar.url(:medium) %>
+      </div><!--buttons-->
 
-      </div>
-
-    </div><!--left -->
-    <div class="rightdiv">
-
-          <h3>Username:</h3>
-          <%= @user.user_name %>
-          <h3>Twitter: </h3>  
-          <%= @user.twitter %>
-          <h3> About <%= @user.user_name %> </h3> 
-          
-          <%=@user.about_me%> 
-
-    </div><!--right-->
-
+    </div><!--small-3 columns-->
+    <div class="small-9 columns text">
+      <h3>Username:</h3>
+      <%= @user.user_name %>
+      <h3>Twitter: </h3>  
+      <%= @user.twitter %>
+      <h3> About <%= @user.user_name %> </h3> 
+      <%=@user.about_me%> 
+    </div><!--small-9 columns-->
   </div><!--headerbox-->
 </div><!--headercontainer-->
-  <div class="events-container">
 
+<div class="events-container">
+  <div class="user-events-header">
     <h1><%= @user.user_name %>'s Events</h1>
+  </div>
     <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
       <% @user_events.each do |event|%>
         <li>
           <div class="events">
             <span class="venue_name"><%=event.venue_name%></span> <%=event.location%><br>
             <span class="artist_name"><%=event.artist_name%></span> <%=event.date%>
-              <%=button_to "Delete event", '/events/'+event.id.to_s, method: :delete %>
+              <%=button_to "Delete event", '/events/'+event.id.to_s, method: :delete, class: 'tiny alert button' %>
           </div><!--events-->
         </li>
-        <%end%>
+      <%end%>
      </br>
     </ul><!--small-block-grid-2 medium-block-grid-3 large-block-grid-4-->
 

@@ -1,5 +1,6 @@
 
 body#usershow {
+
   background-color: #cdcdcd;
 }
 h1, h2, h3, h4 {
@@ -34,40 +35,49 @@ font-weight: 300;
  }
 
 .headercontainer{
-  height: 30vw;
-  margin: 25px 115px;
-}
-
-
-.leftdiv{
-  position: relative;
-  width: 30%
-}
-
-.rightdiv {
-  position: relative;
-  top: -324px;
-  left: 125px;
-  width: 66%;
-  padding: 5px 15px;
-  margin: 0 auto;
-}
-.headerbox {
-  position: absolute;
-  height: 30vw;
-
+  height: 32vw;
 }
 
 
 .events-container{
   border-radius: 10px;
   padding: 10px;
-  margin: 60px auto;
+  margin: 15px auto;
   width: 80%;
+}
+
+#username_show{
+  font-size: 2em;
+  margin: 0;
+  margin-bottom: 3px;
 }
 
 li.events {
   margin: 5px 2.5px;
+}
+
+.user-events-header{
+  height: 50px;
+  width: 50%;
+  margin-top: 75px;
+}
+
+#user-info {
+  height: 85vh;
+  padding: 15px;
+  margin: 5px;
+}
+.user-show-buttons{
+  width: 100%;
+}
+#avatar{
+    width: 30%;
+  height: 60%;
+}
+.text {
+  overflow: scroll;
+  width: 60%;
+  height: 60%;
 }
 
 .events{
@@ -84,6 +94,7 @@ li.events {
 .artist-name {
   font-style: italic;
 }
+
 #event-info {
 	text-align: left;
 	float: left;
@@ -123,12 +134,15 @@ li.events {
 }
 
 div.avatar {
-  width:70%;
+  width:100%;
 }
 
 .avatar img{
   height: 100%;
   width: 100%;
+  margin-bottom: 15px;
+  min-width: 75px;
+  max-width: 100px;
 }
 
 div#spotify-image-container {
@@ -170,10 +184,64 @@ div#spotify-image-container {
 button{
   background-color: #E60000;
 }
+<<<<<<< HEAD
+@media only screen and (min-width: 921px) {
 
-  #map { height: 100vh; width: 50vw; position: relative; float: left;}
+  .events-container{
+    border-radius: 10px;
+    padding: 10px;
+    margin: -20px auto;
+    width: 80%;
+  }
+}
 
-@media only screen and (max-width: 40em) { 
+@media only screen and (max-width: 920px) {
+
+  .avatar img{
+  height: 100%;
+  width: 100%;
+  margin-bottom: 15px;
+  min-width: none;
+}
+
+
+.events-container{
+  border-radius: 10px;
+  padding: 10px;
+  margin: 60px auto;
+  width: 80%;
+}
+
+}
+
+@media only screen and (max-width: 742px) {
+
+
+  .events-container{
+    border-radius: 10px;
+    padding: 10px;
+    margin: 90px auto;
+    width: 80%;
+  }
+
+}
+
+@media only screen and (max-width: 640px) {
+
+
+  .events-container {
+    /* border-radius: 10px; */
+    /* padding: 10px; */
+    /*margin: 0px auto;*/
+    /* width: 80%; */
+    position: relative;
+    top: 65px;
+  }
+
+ .user-events-header {
+    display: none;
+  }
+
 	.event-list{
 		clear: both;
 		position: relative;
@@ -195,5 +263,4 @@ button{
  	float: left;
  }
 	
-
 }
