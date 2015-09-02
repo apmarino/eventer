@@ -30,7 +30,7 @@ class EventsController < ApplicationController
   	end
     date = @single['datetime'].gsub!("T", " ")
     @the_date = DateTime.parse(date).strftime('%A %B %d, %I:%M %p %Y')
-    event_search = Event.where({venue_name: @single['venue']['name']})
+    event_search = Event.where({venue_name: @single['venue']['name'], date: @single['datetime']})
     
     if event_search.length > 0
       @see_users = event_search.map do |event|
@@ -45,9 +45,18 @@ class EventsController < ApplicationController
 
 
   def create
-    search = EventsUser.find_by(user_id: params["event"]["user_id"])
-    double = Event.find_by(id: search["id"])
-    if double
+    search = EventsUser.where(user_id: params["event"]["user_id"])
+    gather = search.map do |s|
+      double = Event.find_by(id: s["event_id"])
+      double
+    end
+    duplicate = false
+    gather.each do |s|
+    if s["venue_name"] == params["event"]["venue_name"] && s["artist_name"] == params["event"]["artist_name"]
+      duplicate = true
+      end
+    end
+    if duplicate == true
       redirect_to events_path
     else      
     	event = Event.create(event_params)

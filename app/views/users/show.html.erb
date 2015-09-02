@@ -30,7 +30,9 @@
 
     <span class="venue_name"></a><%=event.venue_name%></span> <%=event.location%><br>
       <span class="artist_name"><%=event.artist_name%></span> <%=event.date%>
+      <% if @show_buttons == true %>
       <%=button_to "Delete event", '/events/'+event.id.to_s, method: :delete %>
+      <% end %>
     </div><!--events-->
     <%end%>
  </br>
