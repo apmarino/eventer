@@ -1,6 +1,6 @@
 <body id="usershow">
 
-
+<div id="map"></div>
 <div id="user-show-background"> <img src="http://wallpaper.pickywallpapers.com/1920x1080/concert.jpg" alt=""></div><!--user-show_background-->
 <div class="headercontainer">
 
@@ -55,5 +55,9 @@
     </ul><!--small-block-grid-2 medium-block-grid-3 large-block-grid-4-->
 
   </div><!--events-container-->
+  <%= render 'maps'%>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_ID']%>&callback=initMap">
+  </script>
 </body>
 
