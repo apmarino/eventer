@@ -1,25 +1,25 @@
-<h1><%= @user.user_name %>'s Profile</h1>
-<%if @show_buttons == true %>
-
-  <%= button_to "Edit Profile", edit_user_path, method: :get %><br>
-
-  <%=button_to 'Delete Profile', user_path(@user), :method => :delete, :data => {:confirm => "are you sure?"} %>
- <%end%>
-
-<div class="avatar">
-
-  <%= image_tag @user.avatar.url(:medium) %>
-
-</div><!--avatar-->
 <div class="userinfo">
+  <h1><%= @user.user_name %>'s Profile</h1>
+  <%if @show_buttons == true %>
 
-  <h3>Username:</h3>
-  <%= @user.user_name %>
-  <h3>Twitter: </h3>  
-  <%= @user.twitter %>
-  <h3> About <%= @user.user_name %> </h3> 
-  
-  <%=@user.about_me%> 
+    <%= button_to "Edit Profile", edit_user_path, method: :get %><br>
+
+    <%=button_to 'Delete Profile', user_path(@user), :method => :delete, :data => {:confirm => "are you sure?"} %>
+   <%end%>
+
+  <div class="avatar">
+
+    <%= image_tag @user.avatar.url(:medium) %>
+
+  </div><!--avatar-->
+
+    <h3>Username:</h3>
+    <%= @user.user_name %>
+    <h3>Twitter: </h3>  
+    <%= @user.twitter %>
+    <h3> About <%= @user.user_name %> </h3> 
+    
+    <%=@user.about_me%> 
 
 </div><!--userinfo-->
 

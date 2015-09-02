@@ -1,9 +1,18 @@
+.wrapper {
+	position: fixed;
+	margin: 0;
+}
+
+
 .avatar{
 
 }
 
 .userinfo{
+  border: solid black 1px;
+  border-radius: 10px;
   margin: 15px;
+  padding: 10px;
 }
 
 .events-container{
@@ -11,7 +20,10 @@
 }
 
 .events{
+  border: solid black 1px;
+  border-radius: 10px;
   padding: 10px;
+  margin: 10px auto;
 }
 
 .venue-name{
@@ -23,12 +35,35 @@
 }
 
 .event-list {
+	float: left;
+	position: relative;
+	width: 50vw;
+	height: 100vh;
+	overflow: scroll;
 
 }
 
-#spotify-image-container {
-	
+
+div.avatar {
+  width:30%;
 }
+
+
+.avatar img{
+  height: 100%;
+  width: 100%;
+}
+
+div#spotify-image-container {
+  width:30%;
+}
+
+
+#spotify-image-container img{
+  height: 100%;
+  width: 100%;
+}
+
 .back{
   height: 100%;
   width: 100%;

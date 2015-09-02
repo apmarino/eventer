@@ -3,13 +3,13 @@
   <head>
     <style type="text/css">
       html, body { height: 100%; margin: 0; padding: 0; }
-      #map { height: 75%; width: auto;}
+      #map { height: 100vh; width: 50vw; position: relative; float: left;}
     </style>
   </head>
 
   <body>
+	 <div class="wrapper">
     <div id="map"></div>
-    
 
     <div class="event-list">
       <h1>Events Happening Nearby</h1>
@@ -37,6 +37,8 @@
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_ID']%>&callback=initMap">
     </script>
+
 <%= render 'maps'%>
+  </div>
   </body>
 </html>

@@ -5,7 +5,7 @@
 
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat:parseInt($.cookie("lat")), lng:parseInt($.cookie("long"))},
+          center: {lat:parseFloat($.cookie("lat")), lng:parseFloat($.cookie("long"))},
           zoom: 12,
         });
 
