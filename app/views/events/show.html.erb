@@ -76,7 +76,7 @@
 
 <h4>Other users who saved this event:</h4>
 <% @see_users.each do |user|%>
-  <a href="/users/<%= user.id%>"> <%= image_tag user.avatar.url(:thumb) %></a>
+  <a href="/users/<%= user[0].id%>"> <%= image_tag user[0].avatar.url(:thumb) %></a>
 <% end %>
 
 
