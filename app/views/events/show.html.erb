@@ -68,7 +68,9 @@
  <%=f.hidden_field :user_id, value: session[:user_id]%> 
  <%=f.hidden_field :artist_name, value: @single['artists'][0]['name']%> 
  <%=f.hidden_field :location, value: @single['venue']['city']%>
- <%=f.hidden_field :date, value: @single['datetime']%>
+ <%=f.hidden_field :date, value: @the_date%>
+ <%=f.hidden_field :lat, value: @single['venue']['latitude']%>
+ <%=f.hidden_field :long, value: @single['venue']['longitude']%>
  <%=f.submit 'Save Event'%>
 
 <%end%>
@@ -81,7 +83,7 @@
 <% end %>
 
 
-<%= render 'maps'%>
+
 <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_ID']%>&callback=initMap">
 </script>

@@ -1,9 +1,7 @@
-
 <script type="text/javascript">
       
 
       var map;
-      var marker
 
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -13,19 +11,19 @@
 
         <% counter=0%>
      <% @events.each do | event | %>
-      marker = new google.maps.Marker({
+      var marker = new google.maps.Marker({
          position: {lat:<%=event['venue']['latitude']%>, lng:<%=event['venue']['longitude']%>},
          map: map,
          title: '<%=event['venue']['name']%>'
 
        });
-
+          
           google.maps.event.addListener(marker, 'click', function() {
       window.location.href = "/events/show/<%=event['venue']['city']%>/<%=event['venue']['region']%>/<%=event['id']%>";
       });
          eventDiv = $('.hover<%counter%>')        
-         eventDiv[0].addEventListener('mouseover', function(){toggleBounce})
-          function toggleBounce() {
+
+          function toggleBounce<%=counter%>() {
               marker.setAnimation(google.maps.Animation.BOUNCE);
             setTimeout(function(){marker.setAnimation(null)}, 1500)
           }
