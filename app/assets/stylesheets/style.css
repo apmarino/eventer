@@ -29,3 +29,21 @@
 #spotify-image-container {
 	
 }
+.back{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  opacity: .7;
+  z-index: -1;
+}
+.accordion-navigation{
+  opacity: .8;
+  
+}
+.accordion{
+  width: 50%;
+  margin: 0 auto;
+}
+button{
+  background-color: #E60000;
+}
