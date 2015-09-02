@@ -66,6 +66,10 @@
 
 
 <script>
+  navigator.geolocation.getCurrentPosition(function(position){
+    $.cookie("lat", position.coords.latitude)
+    $.cookie("long", position.coords.longitude)
+  })
   $(document).foundation({
     accordion: {
       callback : function (accordion) {

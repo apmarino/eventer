@@ -1,11 +1,11 @@
 <script type="text/javascript">
-
+      
 
       var map;
 
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat:40.73, lng:-73.99},
+          center: {lat:parseInt($.cookie("lat")), lng:parseInt($.cookie("long"))},
           zoom: 12,
         });
 
