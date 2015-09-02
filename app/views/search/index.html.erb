@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style type="text/css">
+   <style type="text/css">
       html, body { height: 100%; margin: 0; padding: 0; }
-      #map { height: 75%; width: auto;}
+      #map { height: 100vh; width: 50vw; position: relative; float: left;}
     </style>
   </head>
 
   <body>
+  	<div class="wrapper">
     <div id="map"></div>
     
     <script type="text/javascript">
@@ -62,5 +63,6 @@
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_ID']%>&callback=initMap">
     </script>
+  </div>
   </body>
 </html>

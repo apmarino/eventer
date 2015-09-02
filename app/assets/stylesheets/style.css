@@ -1,3 +1,9 @@
+.wrapper {
+	position: fixed;
+	margin: 0;
+}
+
+
 .avatar{
 
 }
@@ -23,6 +29,11 @@
 }
 
 .event-list {
+	float: left;
+	position: relative;
+	width: 50vw;
+	height: 100vh;
+	overflow: scroll;
 
 }
 
