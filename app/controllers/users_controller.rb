@@ -30,6 +30,7 @@ before_action :authenticate, except: [:new, :create]
 		else 
 			@show_buttons = true
 		end
+		
 	end
 
 	def edit

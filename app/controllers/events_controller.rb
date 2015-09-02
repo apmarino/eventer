@@ -7,13 +7,10 @@ class EventsController < ApplicationController
 	  	@events = HTTParty.get("http://api.bandsintown.com/events/search?date=#{current_date}&location=use_geoip&radius=&format=json&app_id=YOUR_APP_ID
 	")
 	  	@ip = request.remote_ip
-	  	# location = Geocoder.search(@ip)
+	  	
 	  	@long = request.location.longitude
 	  	@lat = request.location.latitude
-	  	# puts "@long: " << "#{@long}"
-      #puts "@lat: " << "#{@lat}"
-      puts "@ip: " << "#{@ip}"
-      puts "request long: " << "#{request.location.longitude}"
+
 	end
 
   def show
@@ -51,6 +48,7 @@ class EventsController < ApplicationController
       double
     end
     duplicate = false
+
     gather.each do |s|
     if s["venue_name"] == params["event"]["venue_name"] && s["artist_name"] == params["event"]["artist_name"]
       duplicate = true
