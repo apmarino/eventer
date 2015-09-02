@@ -9,11 +9,12 @@
     <div id="map"></div>
 
     <div class="event-list">
-      <h1>Events Happening Nearby</h1>
+      <h1 id="center">Events Happening Nearby</h1>
         <% counter=0%>
         <% @events.each do |event| %>
-        <a href="/events/show/<%=event['venue']['city']%>/<%=event['venue']['region']%>/<%=event['id']%>">
-          <div class = "events-container hover<%= counter%>">
+       
+          <div class = "event-wrapper">
+          	 <a href="/events/show/<%=event['venue']['city']%>/<%=event['venue']['region']%>/<%=event['id']%>">
           <% date = event['datetime'].gsub!("T", " ")
           the_date = DateTime.parse(date).strftime('%A %B %d, %I:%M %p %Y') %>
           <h4><%=event['venue']['name']%> , <%=event['venue']['region']%></h4> 
@@ -24,7 +25,8 @@
           <li><em><%=artist['name']%> </em> </li>
           <%end%>
           </ul>
-        </div></a>
+        </a>
+        </div>
         <% counter += 1%>
       <%end%>
 

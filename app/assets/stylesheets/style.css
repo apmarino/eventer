@@ -1,7 +1,20 @@
 
 body#usershow {
-  background-color: grey;
+  background-color: #cdcdcd;
 }
+h1, h2, h3, h4 {
+	font-family: 'Poiret One', cursive;
+}
+
+h5, h6, p, a {
+font-family: 'Oswald', sans-serif;
+}
+
+h5 {
+font-family: 'Oswald', sans-serif;
+font-weight: 300;
+}
+
 
 .wrapper {
 	position: fixed;
@@ -45,6 +58,7 @@ body#usershow {
 
 }
 
+
 .events-container{
   border-radius: 10px;
   padding: 10px;
@@ -70,13 +84,41 @@ li.events {
 .artist-name {
   font-style: italic;
 }
-
+#event-info {
+	text-align: left;
+	float: left;
+	padding-left: 5%;
+}
 .event-list {
 	float: left;
 	position: relative;
-	width: 50vw;
+	width: 49vw;
 	height: 100vh;
 	overflow: scroll;
+	background-color:  #acacac;
+
+}
+#artists-show {
+	background-color: #cdcdcd;
+}
+#center{
+	text-align: center;
+}
+
+.event-wrapper:hover {
+	background-color: #cdcdcd;
+}
+
+.event-wrapper ul.inline-list{
+	margin-bottom: 0;
+}
+
+.event-wrapper {
+	padding-left: 1%;
+	border-top: 1px solid #888888;
+	border-bottom: 1px solid #black;
+	padding: 3% 3% 3% 10%;
+
 
 }
 

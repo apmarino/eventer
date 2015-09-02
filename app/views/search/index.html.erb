@@ -38,7 +38,7 @@
 			<h1>Events on <%=@date%></h1>
 				<% @events.each do |event| %>
 				<a href="/search/show/<%=event['venue']['city']%>/<%=event['venue']['region']%>/<%=event['id']%>/<%=@date%>">
-				<div class="events-container">
+				<div class="event-wrapper">
 				<% date = event['datetime'].gsub!("T", " ")
     		the_date = DateTime.parse(date).strftime('%A %B %d, %I:%M %p %Y') %>
 				<h4><%=event['venue']['name']%> <%=event['venue']['region']%></h4> 

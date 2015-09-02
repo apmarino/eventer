@@ -15,9 +15,9 @@
       <div class="buttons">
         <%if @show_buttons == true %>
 
-          <%= button_to "Edit Profile", edit_user_path, method: :get %><br>
+          <%= button_to "Edit Profile", edit_user_path, method: :get, class: 'tiny secondary button' %><br>
 
-          <%=button_to 'Delete Profile', user_path(@user), :method => :delete, :data => {:confirm => "are you sure?"} %>
+          <%=button_to 'Delete Profile', user_path(@user), :method => :delete, :data => {:confirm => "are you sure?"}, class: 'tiny alert button' %>
          <%end%>
       </div>
       <div class="avatar">
