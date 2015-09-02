@@ -33,7 +33,9 @@ class EventsController < ApplicationController
     event_search = Event.where({venue_name: @single['venue']['name']})
     
     if event_search.length > 0
-      @see_users = event_search.users
+      @see_users = event_search.map do |event|
+        event.users
+      end
     else 
       @see_users = []
     end
@@ -43,9 +45,15 @@ class EventsController < ApplicationController
 
 
   def create
-  	event = Event.create(event_params)
-  	EventsUser.create({event_id: event.id, user_id: session[:user_id]})
-  	redirect_to events_path
+    search = EventsUser.find_by(user_id: params["event"]["user_id"])
+    double = Event.find_by(id: search["id"])
+    if double
+      redirect_to events_path
+    else      
+    	event = Event.create(event_params)
+    	EventsUser.create({event_id: event.id, user_id: session[:user_id]})
+    	redirect_to events_path
+    end
   end
 
   def destroy
