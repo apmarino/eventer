@@ -31,7 +31,6 @@ class SearchController < ApplicationController
     event_search = Event.where({venue_name: @single['venue']['name'], date: @single['datetime']})
     
     if event_search.length > 0
-      binding.pry
       @see_users = event_search.map do |event|
       event.users
       end
