@@ -28,9 +28,7 @@
 		   title: '<%=@single['venue']['name']%>'
 
 		 });
-        google.maps.event.addListener(marker, 'click', function() {
-	window.location.href = this.url;
-		});
+        
    
     }
 
@@ -70,7 +68,9 @@
  <%=f.hidden_field :user_id, value: session[:user_id]%> 
  <%=f.hidden_field :artist_name, value: @single['artists'][0]['name']%> 
  <%=f.hidden_field :location, value: @single['venue']['city']%>
- <%=f.hidden_field :date, value: @single['datetime']%>
+ <%=f.hidden_field :date, value: @the_date%>
+ <%=f.hidden_field :lat, value: @single['venue']['latitude']%>
+ <%=f.hidden_field :long, value: @single['venue']['longitude']%>
  <%=f.submit 'Save Event'%>
 
 <%end%>
@@ -78,8 +78,10 @@
 
 <h4>Other users who saved this event:</h4>
 <% @see_users.each do |user|%>
-  <a href="/users/<%= user.id%>"> <%= image_tag user.avatar.url(:thumb) %></a>
+
+  <a href="/users/<%= user[0].id%>"> <%= image_tag user[0].avatar.url(:thumb) %></a>
 <% end %>
+
 
 
 <script async defer
