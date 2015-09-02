@@ -1,8 +1,5 @@
-
-<script type="text/javascript">
-      
-
-      var map;
+console.log("LINKED BITCHES")
+var map;
       var marker
 
       function initMap() {
@@ -33,6 +30,3 @@
       <%end%>
 
       }
-
-
-</script>
