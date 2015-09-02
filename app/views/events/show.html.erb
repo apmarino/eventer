@@ -8,8 +8,14 @@
   </head>
 
   <body>
-
+<div id="user-show-background"> <img src="http://wallpaper.pickywallpapers.com/1920x1080/concert.jpg" alt=""></div><!--user-show_background-->
+<div class="headercontainer">
  <div id="map"></div>
+ <div id="event-info">
+	<h2><%=@single['venue']['name']%></h2>
+	<h3><%=@single['venue']['city']%>, <%=@single['venue']['region']%></h3>
+	<h4><%=@the_date%></h4>
+</div>
 
 <script type="text/javascript">
 
@@ -28,16 +34,20 @@
 		   title: '<%=@single['venue']['name']%>'
 
 		 });
-        google.maps.event.addListener(marker, 'click', function() {
-	window.location.href = this.url;
-		});
+        
    
     }
 
 </script>
-<h2><%=@single['venue']['name']%></h2>
-<h3><%=@single['venue']['city']%>, <%=@single['venue']['region']%></h3>
-<h4><%=@the_date%></h4>
+
+</div>
+</div>
+	<h2><%=@single['venue']['name']%></h2>
+	<h3><%=@single['venue']['city']%>, <%=@single['venue']['region']%></h3>
+	<h4><%=@the_date%></h4>
+</div>
+<div id="artists-show">
+
 <h6>Artists Performing:</h6>
 	<%@single['artists'].each do |artist| %>
 	<h6><%=artist['name']%></h6>
@@ -70,21 +80,27 @@
  <%=f.hidden_field :user_id, value: session[:user_id]%> 
  <%=f.hidden_field :artist_name, value: @single['artists'][0]['name']%> 
  <%=f.hidden_field :location, value: @single['venue']['city']%>
- <%=f.hidden_field :date, value: @single['datetime']%>
- <%=f.submit 'Save Event'%>
+ <%=f.hidden_field :date, value: @the_date%>
+ <%=f.hidden_field :lat, value: @single['venue']['latitude']%>
+ <%=f.hidden_field :long, value: @single['venue']['longitude']%>
+ <%=f.submit 'Save Event', class: 'tiny success button' %>
 
 <%end%>
-
+</div>
 
 <h4>Other users who saved this event:</h4>
 <% @see_users.each do |user|%>
-  <a href="/users/<%= user.id%>"> <%= image_tag user.avatar.url(:thumb) %></a>
+
+  <a href="/users/<%= user[0].id%>"> <%= image_tag user[0].avatar.url(:thumb) %></a>
 <% end %>
+
 
 
 <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_ID']%>&callback=initMap">
 </script>
+
+
  </body>
 </html>
 

@@ -1,0 +1,25 @@
+<script type="text/javascript">
+      
+
+      var map;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat:parseFloat($.cookie("lat")), lng:parseFloat($.cookie("long"))},
+          zoom: 12,
+        });
+
+        <% counter=0%>
+     <% @user_events.each do | event | %>
+      var marker = new google.maps.Marker({
+         position: {lat:<%=event['lat']%>, lng:<%=event['long']%>},
+         map: map,
+         title: '<%=event['venue_name']%>'
+
+       });
+      <%end%>
+
+      }
+
+
+</script>

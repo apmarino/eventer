@@ -14,7 +14,7 @@
 //= require gmaps/google
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
 //= require foundation
 //= require_tree ../../../vendor/assets
 //= require_tree .

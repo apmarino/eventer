@@ -1,10 +1,43 @@
+
 body#usershow {
-  background-color: #CDCDCD;
+
+  background-color: #cdcdcd;
 }
+h1, h2, h3, h4 {
+	font-family: 'Poiret One', cursive;
+}
+
+h5, h6, p, a {
+font-family: 'Oswald', sans-serif;
+}
+
+h5 {
+font-family: 'Oswald', sans-serif;
+font-weight: 300;
+}
+
+
+.wrapper {
+	position: fixed;
+	margin: 0;
+}
+
+ html, body { 
+ 	height: 100%; 
+ 	margin: 0; 
+ 	padding: 0; 
+ }
+ #map { 
+ 	height: 100vh; 
+ 	width: 50vw; 
+ 	position: relative; 
+ 	float: left;
+ }
 
 .headercontainer{
   height: 32vw;
 }
+
 
 .events-container{
   border-radius: 10px;
@@ -62,8 +95,41 @@ li.events {
   font-style: italic;
 }
 
-
+#event-info {
+	text-align: left;
+	float: left;
+	padding-left: 5%;
+}
 .event-list {
+	float: left;
+	position: relative;
+	width: 49vw;
+	height: 100vh;
+	overflow: scroll;
+	background-color:  #acacac;
+
+}
+#artists-show {
+	background-color: #cdcdcd;
+}
+#center{
+	text-align: center;
+}
+
+.event-wrapper:hover {
+	background-color: #cdcdcd;
+}
+
+.event-wrapper ul.inline-list{
+	margin-bottom: 0;
+}
+
+.event-wrapper {
+	padding-left: 1%;
+	border-top: 1px solid #888888;
+	border-bottom: 1px solid #black;
+	padding: 3% 3% 3% 10%;
+
 
 }
 
@@ -118,6 +184,7 @@ div#spotify-image-container {
 button{
   background-color: #E60000;
 }
+<<<<<<< HEAD
 @media only screen and (min-width: 921px) {
 
   .events-container{
@@ -159,20 +226,41 @@ button{
 
 }
 
-@media only screen and (max-width: 619px) {
+@media only screen and (max-width: 640px) {
 
 
-.events-container {
-  /* border-radius: 10px; */
-  /* padding: 10px; */
-  /*margin: 0px auto;*/
-  /* width: 80%; */
-  position: relative;
-  top: 65px;
-}
+  .events-container {
+    /* border-radius: 10px; */
+    /* padding: 10px; */
+    /*margin: 0px auto;*/
+    /* width: 80%; */
+    position: relative;
+    top: 65px;
+  }
 
  .user-events-header {
     display: none;
   }
 
+	.event-list{
+		clear: both;
+		position: relative;
+		width: 100vw;
+		height: 100vh;
+		overflow: scroll;
+
+	}
+	#map { height: 50vh; width: 100vw; position: relative; float: left;}
+
+	.wrapper{
+		position: absolute;
+		width: 100vw;
+
+	}
+	#map { 
+ 	width: 100vw; 
+ 	position: relative; 
+ 	float: left;
+ }
+	
 }
