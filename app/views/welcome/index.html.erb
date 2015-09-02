@@ -1,3 +1,5 @@
+<div class="back"> <img src="http://wallpaper.pickywallpapers.com/1920x1080/concert.jpg" alt=""> </div>
+
 <p style="color:red"> <strong><%= flash[:error]%></strong> </p>
 
 <ul class="accordion" data-accordion>
@@ -20,7 +22,7 @@
           <ul>
           <% @user.errors.full_messages.each do |message| %>
           <li style="color: red"><%= message %></li>
-          <% end %>quit
+          <% end %>
         </ul>
         </div>
         <% end %>
@@ -53,7 +55,6 @@
     </div>
   </li>
 </ul>
-
 
 
 
