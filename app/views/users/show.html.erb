@@ -1,39 +1,59 @@
-<div class="userinfo">
-  <h1><%= @user.user_name %>'s Profile</h1>
-  <%if @show_buttons == true %>
+<body id="usershow">
 
-    <%= button_to "Edit Profile", edit_user_path, method: :get %><br>
 
-    <%=button_to 'Delete Profile', user_path(@user), :method => :delete, :data => {:confirm => "are you sure?"} %>
-   <%end%>
+<div id="user-show-background"> <img src="http://wallpaper.pickywallpapers.com/1920x1080/concert.jpg" alt=""></div><!--user-show_background-->
+<div class="headercontainer">
 
-  <div class="avatar">
 
-    <%= image_tag @user.avatar.url(:medium) %>
-
-  </div><!--avatar-->
-
-    <h3>Username:</h3>
-    <%= @user.user_name %>
-    <h3>Twitter: </h3>  
-    <%= @user.twitter %>
-    <h3> About <%= @user.user_name %> </h3> 
+  <div class="headerbox">
+    <div class="leftdiv ">
     
-    <%=@user.about_me%> 
 
-</div><!--userinfo-->
+        <h1><%= @user.user_name %>'s Profile</h1>
+      <div class="buttons">
+        <%if @show_buttons == true %>
 
-<h1><%= @user.user_name %>'s Events</h1>
-<div class="events_container">
-  <% @user_events.each do |event|%>
-    <div class="events">
+          <%= button_to "Edit Profile", edit_user_path, method: :get %><br>
 
-    <span class="venue_name"></a><%=event.venue_name%></span> <%=event.location%><br>
-      <span class="artist_name"><%=event.artist_name%></span> <%=event.date%>
-      <% if @show_buttons == true %>
-      <%=button_to "Delete event", '/events/'+event.id.to_s, method: :delete %>
-      <% end %>
-    </div><!--events-->
-    <%end%>
- </br>
-</div><!--events_container-->
+          <%=button_to 'Delete Profile', user_path(@user), :method => :delete, :data => {:confirm => "are you sure?"} %>
+         <%end%>
+      </div>
+      <div class="avatar">
+      <%= image_tag @user.avatar.url(:medium) %>
+
+      </div>
+
+    </div><!--left -->
+    <div class="rightdiv">
+
+          <h3>Username:</h3>
+          <%= @user.user_name %>
+          <h3>Twitter: </h3>  
+          <%= @user.twitter %>
+          <h3> About <%= @user.user_name %> </h3> 
+          
+          <%=@user.about_me%> 
+
+    </div><!--right-->
+
+  </div><!--headerbox-->
+</div><!--headercontainer-->
+  <div class="events-container">
+
+    <h1><%= @user.user_name %>'s Events</h1>
+    <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+      <% @user_events.each do |event|%>
+        <li>
+          <div class="events">
+            <span class="venue_name"><%=event.venue_name%></span> <%=event.location%><br>
+            <span class="artist_name"><%=event.artist_name%></span> <%=event.date%>
+              <%=button_to "Delete event", '/events/'+event.id.to_s, method: :delete %>
+          </div><!--events-->
+        </li>
+        <%end%>
+     </br>
+    </ul><!--small-block-grid-2 medium-block-grid-3 large-block-grid-4-->
+
+  </div><!--events-container-->
+</body>
+
