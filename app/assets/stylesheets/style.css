@@ -3,6 +3,7 @@ body#usershow {
 
   background-color: #cdcdcd;
 }
+
 h1, h2, h3, h4 {
 	font-family: 'Poiret One', cursive;
 }
@@ -27,6 +28,7 @@ font-weight: 300;
  	margin: 0; 
  	padding: 0; 
  }
+
  #map { 
  	height: 100vh; 
  	width: 50vw; 
@@ -38,6 +40,19 @@ font-weight: 300;
   height: 32vw;
 }
 
+#other-avatars {
+	float: left;
+	display: inline-block;
+	margin: 2%;
+	height: 100px;
+	width: 100px;
+}
+img#other-avatars {
+	height: auto;
+	width: auto;
+	overflow: hidden;
+	
+}
 
 .events-container{
   border-radius: 10px;
@@ -94,11 +109,16 @@ li.events {
 .artist-name {
   font-style: italic;
 }
+#show-header {
+	margin-top: 3%;
+	padding-left: 8%;
+}
+
 
 #event-info {
 	text-align: left;
 	float: left;
-	padding-left: 5%;
+	padding-left: 2%;
 }
 .event-list {
 	float: left;
@@ -106,18 +126,20 @@ li.events {
 	width: 49vw;
 	height: 100vh;
 	overflow: scroll;
-	background-color:  #acacac;
+	background-color:  #cdcdcd;
 
 }
 #artists-show {
 	background-color: #cdcdcd;
+	text-align: center;
+	padding-top: 2%;
 }
 #center{
 	text-align: center;
 }
 
 .event-wrapper:hover {
-	background-color: #cdcdcd;
+	background-color: #eeeeee;
 }
 
 .event-wrapper ul.inline-list{
@@ -130,7 +152,14 @@ li.events {
 	border-bottom: 1px solid #black;
 	padding: 3% 3% 3% 10%;
 
-
+}
+#other-users {
+	padding-left: 5%;
+	text-align: left;
+	width: 100vw;
+	height: auto;
+	position: absolute;
+	background-color: #eeeeee;
 }
 
 div.avatar {
@@ -147,6 +176,10 @@ div.avatar {
 
 div#spotify-image-container {
   width:30%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 2%;
+
 }
 
 #spotify-image-container img{
@@ -184,7 +217,6 @@ div#spotify-image-container {
 button{
   background-color: #E60000;
 }
-<<<<<<< HEAD
 @media only screen and (min-width: 921px) {
 
   .events-container{
@@ -257,10 +289,17 @@ button{
 		width: 100vw;
 
 	}
+	#show-header {
+	margin-top: 0%;
+	padding-left: 0%;
+}
 	#map { 
  	width: 100vw; 
  	position: relative; 
  	float: left;
+ }
+ #other-users {
+ 	width: 100vh;
  }
 	
 }

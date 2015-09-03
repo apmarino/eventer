@@ -3,20 +3,22 @@
   <head>
     <style type="text/css">
       html, body { height: 100%; margin: 0; padding: 0; }
-      #map { height: 300px; width:500px;}
+      #map { height: 275px; width:450px;}
     </style>
   </head>
 
-  <body>
+  <body id="usershow">
 <div id="user-show-background"> <img src="http://wallpaper.pickywallpapers.com/1920x1080/concert.jpg" alt=""></div><!--user-show_background-->
 <div class="headercontainer">
- <div id="map"></div>
- <div id="event-info">
-	<h2><%=@single['venue']['name']%></h2>
-	<h3><%=@single['venue']['city']%>, <%=@single['venue']['region']%></h3>
-	<h4><%=@the_date%></h4>
+	<div id="show-header">
+	 <div id="map"></div>
+	 <div id="event-info">
+		<h2><%=@single['venue']['name']%></h2>
+		<h3><%=@single['venue']['city']%>, <%=@single['venue']['region']%></h3>
+		<h4><%=@the_date%></h4>
+		</div>
+	</div>
 </div>
-
 <script type="text/javascript">
 
     var map;
@@ -41,14 +43,10 @@
 </script>
 
 </div>
-</div>
-	<h2><%=@single['venue']['name']%></h2>
-	<h3><%=@single['venue']['city']%>, <%=@single['venue']['region']%></h3>
-	<h4><%=@the_date%></h4>
-</div>
+
 <div id="artists-show">
 
-<h6>Artists Performing:</h6>
+<h4>Artists Performing:</h4>
 	<%@single['artists'].each do |artist| %>
 	<h6><%=artist['name']%></h6>
 		<div id="spotify-image-container">
@@ -72,7 +70,8 @@
 				</div>
 			<%end%>
 			</ul>
-<a href="<%=@single['ticket_url']%>" target="_blank">Buy Tickets</a>
+	<div id="center">		
+<a class="tiny button" href="<%=@single['ticket_url']%>" target="_blank">Buy Tickets</a>
 
 <%= form_for @event do |f| %>
 
@@ -87,13 +86,15 @@
 
 <%end%>
 </div>
-
+</div>
+<div id="other-users">
 <h4>Other users who saved this event:</h4>
 <% @see_users.each do |user|%>
-
+<div id="other-avatars">
   <a href="/users/<%= user[0].id%>"> <%= image_tag user[0].avatar.url(:thumb) %></a>
+</div>
 <% end %>
-
+</div>
 
 
 <script async defer
