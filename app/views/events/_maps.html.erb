@@ -9,7 +9,7 @@
           zoom: 12,
         });
 
-        <% counter=0%>
+        
      <% @events.each do | event | %>
       var marker = new google.maps.Marker({
          position: {lat:<%=event['venue']['latitude']%>, lng:<%=event['venue']['longitude']%>},
@@ -17,18 +17,10 @@
          title: '<%=event['venue']['name']%>'
 
        });
-          console.log(<%=event['venue']['latitude']%>)
-          console.log(marker)
+          
           google.maps.event.addListener(marker, 'click', function() {
       window.location.href = "/events/show/<%=event['venue']['city']%>/<%=event['venue']['region']%>/<%=event['id']%>";
       });
-         eventDiv = $('.hover<%counter%>')        
-
-          function toggleBounce<%=counter%>() {
-              marker.setAnimation(google.maps.Animation.BOUNCE);
-            setTimeout(function(){marker.setAnimation(null)}, 1500)
-          }
-      <%counter += 1%>
       <%end%>
 
       }

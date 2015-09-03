@@ -2,9 +2,9 @@ class SearchController < ApplicationController
 	
 	def index
 		@date = params["date"]
-	  	@events = HTTParty.get("http://api.bandsintown.com/events/search?date=#{@date}&location=use_geoip&radius=&format=json&app_id=YOUR_APP_ID
-	")
 	  	@ip = request.remote_ip
+      @events = HTTParty.get("http://api.bandsintown.com/events/search?date=#{@date}&location=#{@ip}&radius=&format=json&app_id=YOUR_APP_ID
+  ")
   
 
 	end
@@ -15,8 +15,9 @@ class SearchController < ApplicationController
 		event_id = params[:id]
   	city = params[:city]
   	region = params[:region]
+    @ip = request.remote_ip
   	@single
-  	@all_events = HTTParty.get("http://api.bandsintown.com/events/search?date=#{date}&location=use_geoip&radius=&format=json&app_id=YOUR_APP_ID")		
+  	@all_events = HTTParty.get("http://api.bandsintown.com/events/search?date=#{date}&location=#{@ip}&radius=&format=json&app_id=YOUR_APP_ID")		
   	@all_events.each do |event|
   		if event['id'] == event_id.to_i
 
