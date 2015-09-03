@@ -161,15 +161,12 @@ div#spotify-image-container {
 }
 
 .accordion-navigation{
-  opacity: .8;
+  opacity: .85;
   
 }
 .accordion{
   width: 50%;
   margin: 0 auto;
-}
-button{
-  background-color: #E60000;
 }
 
 .avatar img{

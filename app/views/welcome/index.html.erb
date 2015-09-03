@@ -9,7 +9,7 @@
       <%= form_tag(sessions_path) do %>
         <%= text_field_tag :user_name, nil, placeholder: "Enter Username"%> <br>
         <%= password_field_tag :password, nil, placeholder: "Password"%>
-        <%= button_tag "Login"%>
+        <%= button_tag "Login", class:"success radius"%>
       <% end %>
     </div>
   </li>
@@ -48,7 +48,7 @@
             <%= f.label :avatar%>
             <%= f.file_field :avatar, placeholder: "thumb" %>
 
-            <%= f.submit "create" %>
+            <%= f.button "create", class:"radius success button" %>
 
         <% end %>
 
