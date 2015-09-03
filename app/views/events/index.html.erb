@@ -15,6 +15,7 @@
         <% @events.each do |event| %>
        
           <div class = "event-wrapper">
+            binding.pry
           	 <a href="/events/show/<%=event['venue']['city']%>/<%=event['venue']['region']%>/<%=event['id']%>">
           <% date = event['datetime'].gsub!("T", " ")
           the_date = DateTime.parse(date).strftime('%A %B %d, %I:%M %p %Y') %>
