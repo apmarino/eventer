@@ -85,10 +85,7 @@ li.events {
 .user-show-buttons{
   width: 100%;
 }
-#avatar{
-    width: 30%;
-  height: 60%;
-}
+
 .text {
   overflow: scroll;
   width: 60%;
@@ -160,18 +157,11 @@ li.events {
 	height: auto;
 	position: absolute;
 	background-color: #eeeeee;
+
 }
 
 div.avatar {
   width:100%;
-}
-
-.avatar img{
-  height: 100%;
-  width: 100%;
-  margin-bottom: 15px;
-  min-width: 75px;
-  max-width: 100px;
 }
 
 div#spotify-image-container {
@@ -207,16 +197,29 @@ div#spotify-image-container {
 }
 
 .accordion-navigation{
-  opacity: .8;
+  opacity: .85;
   
 }
 .accordion{
   width: 50%;
   margin: 0 auto;
 }
-button{
-  background-color: #E60000;
+
+.avatar img{
+  height: 100%;
+  width: 100%;
+  margin-bottom: 15px;
+  min-width: 75px;
+  max-width: 180px;
 }
+
+#avatar{
+    width: 30%;
+  height: 60%;
+  margin-left: 90px;
+}
+
+
 @media only screen and (min-width: 921px) {
 
   .events-container{
@@ -228,6 +231,12 @@ button{
 }
 
 @media only screen and (max-width: 920px) {
+
+  #avatar{
+    width: 30%;
+    height: 60%;
+    margin-left: 65px;
+  }
 
   .avatar img{
   height: 100%;
@@ -248,6 +257,11 @@ button{
 
 @media only screen and (max-width: 742px) {
 
+  #avatar{
+    width: 30%;
+    height: 60%;
+    margin-left: 40px;
+  }
 
   .events-container{
     border-radius: 10px;
@@ -261,11 +275,13 @@ button{
 @media only screen and (max-width: 640px) {
 
 
+  #avatar{
+    width: 30%;
+    height: 60%;
+    margin-left: 15px;
+  }
+
   .events-container {
-    /* border-radius: 10px; */
-    /* padding: 10px; */
-    /*margin: 0px auto;*/
-    /* width: 80%; */
     position: relative;
     top: 65px;
   }
@@ -298,8 +314,20 @@ button{
  	position: relative; 
  	float: left;
  }
+
  #other-users {
  	width: 100vh;
  }
 	
+}
+
+@media only screen and (max-width: 340px) {
+  .text {
+    display: none;
+  }
+
+  .avatar img{
+    min-width: 150px;
+  }
+
 }

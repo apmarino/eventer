@@ -6,8 +6,6 @@
 
 <body id="usershow">
 
-
-
 <div id="user-show-background"> <img src="http://wallpaper.pickywallpapers.com/1920x1080/concert.jpg" alt=""></div><!--user-show_background-->
 
 <div class="headercontainer">
@@ -34,7 +32,7 @@
       <h3>Username:</h3>
       <%= @user.user_name %>
       <h3>Twitter: </h3>  
-      <%= @user.twitter %>
+      <a href='https://www.twitter.com/<%=@user.twitter%>'>@<%= @user.twitter %></a>
       <h3> About <%= @user.user_name %> </h3> 
       <%=@user.about_me%> 
     </div><!--small-9 columns-->
@@ -49,8 +47,9 @@
       <% @user_events.each do |event|%>
         <li>
           <div class="events">
+            <% the_date = event.date.strftime('%A %B %d, %I:%M %p %Y') %>
             <span class="venue_name"><%=event.venue_name%></span> <%=event.location%><br>
-            <span class="artist_name"><%=event.artist_name%></span> <%=event.date%>
+            <span class="artist_name"><%=event.artist_name%></span> <%=the_date%>
               <%=button_to "Delete event", '/events/'+event.id.to_s, method: :delete, class: 'tiny alert button' %>
           </div><!--events-->
         </li>
