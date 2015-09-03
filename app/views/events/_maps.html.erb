@@ -1,6 +1,6 @@
 <script type="text/javascript">
       
-
+      
       var map;
 
       function initMap() {
@@ -17,7 +17,8 @@
          title: '<%=event['venue']['name']%>'
 
        });
-          
+          console.log(<%=event['venue']['latitude']%>)
+          console.log(marker)
           google.maps.event.addListener(marker, 'click', function() {
       window.location.href = "/events/show/<%=event['venue']['city']%>/<%=event['venue']['region']%>/<%=event['id']%>";
       });
