@@ -9,10 +9,7 @@
     <div id="map"></div>
 
     <div class="event-list">
-      <h1>@events: <%= @events %></h1>
-      <h3>@events[0]:<%= @events[0]%></h3>
-      <h5>@events[0]['venue']['latitude']:<%=@events[0]['venue']['latitude']%></h5>
-
+      
       <h1 id="center">Events Happening Nearby</h1>
         <% counter=0%>
         <% @events.each do |event| %>
