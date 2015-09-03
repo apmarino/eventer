@@ -30,7 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'unicorn'
 
 gem 'gmaps4rails'
-gem 'geocoder'
+
 gem 'underscore-rails'
 gem 'paperclip'
 # gem 'rmagick'

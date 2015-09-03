@@ -8,8 +8,6 @@ class EventsController < ApplicationController
 	")
 	  	@ip = request.remote_ip
 	  	
-	  	@long = request.location.longitude
-	  	@lat = request.location.latitude
 
 	end
 

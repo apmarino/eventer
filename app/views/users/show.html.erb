@@ -49,7 +49,7 @@
           <div class="events">
             <% the_date = event.date.strftime('%A %B %d, %I:%M %p %Y') %>
             <span class="venue_name"><%=event.venue_name%></span> <%=event.location%><br>
-            <span class="artist_name"><%=event.artist_name%></span> <%=the_date%>
+            <span class="artist_name"><%=event.artist_name%></span> <br> <%=the_date%>
               <%=button_to "Delete event", '/events/'+event.id.to_s, method: :delete, class: 'tiny alert button' %>
           </div><!--events-->
         </li>
