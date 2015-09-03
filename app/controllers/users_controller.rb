@@ -17,7 +17,7 @@ before_action :authenticate, except: [:new, :create]
 		 session[:user_id] = @user.id
 		 redirect_to events_path
 		else
-		 flash[:error] = "There was eeror creating your profile"
+		 flash[:error] = "There was error creating your profile"
 		 render template: "welcome/index"
 		end
 	end
